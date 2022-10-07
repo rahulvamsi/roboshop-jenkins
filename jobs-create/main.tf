@@ -4,3 +4,11 @@ provider "jenkins" {
   password   = "admin123"
 }
 
+terraform {
+  required_providers {
+    jenkins = {
+      source = "registry.terraform.io/taiidani/terraform-provider-jenkins"
+    }
+  }
+}
+
