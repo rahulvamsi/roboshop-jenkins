@@ -3,5 +3,5 @@ variable "folders" {
 }
 
 variable "infra-jobs" {
-  default = ["terraform-mutable-infra"]
+  default = ["terraform-mutable-infra", "cart-infra"]
 }
