@@ -1,6 +1,9 @@
 pipeline {
   agent any
 
+  options {
+    ansiColor('xterm')
+  }
 
   stages {
 
@@ -93,22 +96,20 @@ pipeline {
 
       }
 
-      stage('Frontend') {
-        steps {
-          dir('frontend') {
-            git branch: 'main', url: 'https://github.com/raghudevopsb66/frontend-infra.git'
-            sh '''
+    }
+
+    stage('Frontend') {
+      steps {
+        dir('frontend') {
+          git branch: 'main', url: 'https://github.com/raghudevopsb66/frontend-infra.git'
+          sh '''
             cd mutable
             terrafile 
             terraform init -backend-config=env/prod-backend.tfvars
             terraform apply -auto-approve -var-file=env/prod.tfvars
           '''
-          }
         }
       }
-
-
-
     }
 
 
