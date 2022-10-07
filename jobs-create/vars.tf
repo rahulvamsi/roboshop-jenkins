@@ -1,0 +1,3 @@
+variable "folders" {
+  default = ["infrastructure"]
+}
