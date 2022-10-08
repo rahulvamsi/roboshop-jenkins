@@ -1,7 +1,6 @@
-<?xml version='1.1' encoding='UTF-8'?>
-<org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject plugin="workflow-multibranch">
+<?xml version='1.1' encoding='UTF-8'?><org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject plugin="workflow-multibranch">
     <actions/>
-    <description></description>
+    <description/>
     <properties/>
     <folderViews class="jenkins.branch.MultiBranchProjectViewHolder" plugin="branch-api">
         <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
@@ -18,7 +17,7 @@
     </orphanedItemStrategy>
     <triggers>
         <com.igalg.jenkins.plugins.mswt.trigger.ComputedFolderWebHookTrigger plugin="multibranch-scan-webhook-trigger">
-            <spec></spec>
+            <spec/>
             <token>${git_repo}</token>
         </com.igalg.jenkins.plugins.mswt.trigger.ComputedFolderWebHookTrigger>
     </triggers>
@@ -29,7 +28,7 @@
                 <source class="jenkins.plugins.git.GitSCMSource" plugin="git">
                     <id>5dcf415c-8b6d-42d7-9b91-5647468c2809</id>
                     <remote>https://github.com/raghudevopsb66/${git_repo}.git</remote>
-                    <credentialsId></credentialsId>
+                    <credentialsId/>
                     <traits>
                         <jenkins.plugins.git.traits.BranchDiscoveryTrait/>
                         <jenkins.plugins.git.traits.TagDiscoveryTrait/>
