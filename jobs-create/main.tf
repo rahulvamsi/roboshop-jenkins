@@ -18,7 +18,7 @@ resource "jenkins_job" "app-jobs" {
   depends_on = [jenkins_folder.folder]
   count      = length(var.app-jobs)
   name       = element(var.app-jobs, count.index)
-  folder     = "infrastructure"
+  folder     = "applications"
   template = templatefile("${path.module}/pipeline-job.xml", {
     git_repo = element(var.app-jobs, count.index)
   })
