@@ -19,7 +19,7 @@ resource "jenkins_job" "app-jobs" {
   count      = length(var.app-jobs)
   name       = element(var.app-jobs, count.index)
   folder     = "applications"
-  template = templatefile("${path.module}/pipeline-job.xml", {
+  template = templatefile("${path.module}/multi-branch-job.xml", {
     git_repo = element(var.app-jobs, count.index)
   })
 }
