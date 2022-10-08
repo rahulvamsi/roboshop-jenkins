@@ -1,5 +1,4 @@
-<?xml version='1.1' encoding='UTF-8'?>
-<flow-definition plugin="workflow-job">
+<?xml version='1.1' encoding='UTF-8'?><flow-definition plugin="workflow-job">
     <description></description>
     <keepDependencies>false</keepDependencies>
     <properties/>
