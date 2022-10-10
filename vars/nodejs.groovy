@@ -19,8 +19,8 @@ def call() {
       stage('Code Quality') {
         when {
           anyOf {
-            expression { BRANCH_NAME == "main" }
-            expression { TAG_NAME ==~ ".*" }
+            expression { env.BRANCH_NAME == "main" }
+            expression { env.TAG_NAME ==~ ".*" }
           }
         }
         steps {
@@ -32,7 +32,7 @@ def call() {
 
       stage('Make release - Upload Artifact') {
         when {
-          expression { TAG_NAME ==~ ".*" }
+          expression { env.TAG_NAME ==~ ".*" }
         }
         steps {
           sh '''
