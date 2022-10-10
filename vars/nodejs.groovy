@@ -11,8 +11,32 @@ def call() {
       stage('Download Dependencies') {
         steps {
           sh '''
-env
             npm install
+          '''
+        }
+      }
+
+      stage('Code Quality') {
+        when {
+          anyOf {
+            expression { BRANCH_NAME == "main" }
+            expression { TAG_NAME ==~ ".*" }
+          }
+        }
+        steps {
+          sh '''
+            echo Code 
+          '''
+        }
+      }
+
+      stage('Make release - Upload Artifact') {
+        when {
+          expression { TAG_NAME ==~ ".*" }
+        }
+        steps {
+          sh '''
+            echo artifacts
           '''
         }
       }
