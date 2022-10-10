@@ -1,10 +1,7 @@
 def call() {
   node() {
 
-    stage('CheckOut Code') {
-      sh 'rm -rf *'
-      git branch: 'main', url: 'https://github.com/raghudevopsb66/cart'
-    }
+    common.codeCheckOut()
 
       stage('Download Dependencies') {
         sh '''
@@ -12,8 +9,7 @@ def call() {
           '''
       }
 
-
-      common.sonarCheck()
+    common.sonarCheck()
 
 //      stage('Make release - Upload Artifact') {
 //        when {
