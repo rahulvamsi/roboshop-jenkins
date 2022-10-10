@@ -1,33 +1,27 @@
 def call() {
-  pipeline {
-    agent any
-
-    options {
-      ansiColor('xterm')
-    }
+  node() {
 
     stages {
 
       stage('Download Dependencies') {
-        steps {
-          sh '''
+        sh '''
             npm install
           '''
-        }
       }
+
 
       common.sonarCheck()
 
-      stage('Make release - Upload Artifact') {
-        when {
-          expression { env.TAG_NAME ==~ ".*" }
-        }
-        steps {
-          sh '''
-            echo artifacts
-          '''
-        }
-      }
+//      stage('Make release - Upload Artifact') {
+//        when {
+//          expression { env.TAG_NAME ==~ ".*" }
+//        }
+//        steps {
+//          sh '''
+//            echo artifacts
+//          '''
+//        }
+//      }
 
     }
 
