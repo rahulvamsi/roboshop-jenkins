@@ -19,6 +19,7 @@ def call() {
       stage('Code Quality') {
         environment {
           SONAR=credentials('SONAR')
+          COMPONENT = ${env.COMPONENT}
         }
         when {
           anyOf {
