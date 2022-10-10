@@ -17,6 +17,9 @@ def call() {
       }
 
       stage('Code Quality') {
+        environment {
+          SONAR=credentials('SONAR')
+        }
         when {
           anyOf {
             expression { env.BRANCH_NAME == "main" }
@@ -25,7 +28,7 @@ def call() {
         }
         steps {
           sh '''
-            echo Code 
+            sonar-scanner -Dsonar.host.url=http://172.31.94.112:9000 -Dsonar.login=${SONAR_USR} -Dsonar.password=${SONAR_PSW} -Dsonar.projectKey=${env.COMPONENT}
           '''
         }
       }
