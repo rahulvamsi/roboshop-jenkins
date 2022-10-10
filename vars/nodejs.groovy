@@ -11,7 +11,7 @@ def call() {
       stage('Download Dependencies') {
         steps {
           sh '''
-env | grep -i branch
+env
             npm install
           '''
         }
