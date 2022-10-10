@@ -14,6 +14,6 @@ def sonarCheck() {
 def codeCheckOut() {
   stage('CheckOut Code') {
     sh 'rm -rf *'
-    git branch: 'main', url: 'https://github.com/raghudevopsb66/cart'
+    git branch: 'main', url: "https://github.com/raghudevopsb66/${env.COMPONENT}"
   }
 }
