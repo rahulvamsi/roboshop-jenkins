@@ -23,9 +23,11 @@ def uploadArtifact() {
   if (env.TAG_NAME ==~ ".*")
     stage('Make release - Upload Artifact') {
       // Prepare Artifacts
-      sh 'ls -l'
-      sh '''
-        zip -r cart-${TAG_NAME}.zip node_modules server.js
-      '''
+      if (env.APP_TYPE == "node") {
+        sh '''
+          zip -r ${COMPONENT}-${TAG_NAME}.zip node_modules server.js
+        '''
+      }
+
     }
 }
