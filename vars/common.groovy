@@ -1,5 +1,5 @@
 def sonarCheck() {
-  if (env.BRANCH_NAME == "main") {
+  if (env.BRANCH_NAME == "main" || env.TAG_NAME ==~ ".*") {
     stage('Code Quality') {
       withCredentials([usernamePassword(credentialsId: 'SONAR', passwordVariable: 'SONAR_PSW', usernameVariable: 'SONAR_USR')]) {
         sh '''
@@ -20,7 +20,7 @@ def codeCheckOut() {
 }
 
 def uploadArtifact() {
-  if (env.TAG_NAME == ".*")
+  if (env.TAG_NAME ==~ ".*")
       stage('Make release - Upload Artifact') {
           sh '''
             echo artifacts
