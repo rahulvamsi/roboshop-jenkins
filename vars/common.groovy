@@ -23,6 +23,6 @@ def uploadArtifact() {
   if (env.TAG_NAME ==~ ".*")
     stage('Make release - Upload Artifact') {
       // Prepare Artifacts
-      ls -l 
+      sh 'ls -l'
     }
 }
