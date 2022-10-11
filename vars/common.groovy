@@ -18,3 +18,12 @@ def codeCheckOut() {
     git branch: 'main', url: "https://github.com/raghudevopsb66/${env.COMPONENT}"
   }
 }
+
+def uploadArtifact() {
+  if (env.TAG_NAME == ".*")
+      stage('Make release - Upload Artifact') {
+          sh '''
+            echo artifacts
+          '''
+      }
+}
