@@ -3,5 +3,6 @@ def call() {
       node() {
     common.codeCheckOut()
     common.sonarCheck()
+        common.uploadArtifact()
   }
 }
