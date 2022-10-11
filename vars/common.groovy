@@ -42,6 +42,13 @@ def uploadArtifact() {
         '''
       }
 
+      if (env.APP_TYPE == "nginx") {
+        sh '''
+          cd static
+          zip -r ../${COMPONENT}-${TAG_NAME}.zip *
+        '''
+      }
+
       //Upload Artifacts
       withCredentials([usernamePassword(credentialsId: 'NEXUS', passwordVariable: 'NEXUS_PSW', usernameVariable: 'NEXUS_USR')]) {
           sh '''
