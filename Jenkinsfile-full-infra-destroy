@@ -10,7 +10,7 @@ pipeline {
     stage('Frontend') {
       steps {
         dir('frontend') {
-          git branch: 'main', url: 'https://github.com/raghudevopsb66/frontend-infra.git'
+          git branch: 'main', url: 'https://github.com/rahulvamsi/frontend-infra.git'
           sh '''
             cd mutable
             terrafile 
@@ -27,7 +27,7 @@ pipeline {
         stage('Cart') {
           steps {
             dir('cart') {
-              git branch: 'main', url: 'https://github.com/raghudevopsb66/cart-infra.git'
+              git branch: 'main', url: 'https://github.com/rahulvamsi/cart-infra.git'
               sh '''
             cd mutable
             terrafile 
@@ -41,7 +41,7 @@ pipeline {
         stage('Catalogue') {
           steps {
             dir('catalogue') {
-              git branch: 'main', url: 'https://github.com/raghudevopsb66/catalogue-infra.git'
+              git branch: 'main', url: 'https://github.com/rahulvamsi/catalogue-infra.git'
               sh '''
             cd mutable
             terrafile 
@@ -55,7 +55,7 @@ pipeline {
         stage('User') {
           steps {
             dir('user') {
-              git branch: 'main', url: 'https://github.com/raghudevopsb66/user-infra.git'
+              git branch: 'main', url: 'https://github.com/rahulvamsi/user-infra.git'
               sh '''
             cd mutable
             terrafile 
@@ -69,7 +69,7 @@ pipeline {
         stage('Shipping') {
           steps {
             dir('shipping') {
-              git branch: 'main', url: 'https://github.com/raghudevopsb66/shipping-infra.git'
+              git branch: 'main', url: 'https://github.com/rahulvamsi/shipping-infra.git'
               sh '''
             cd mutable
             terrafile 
@@ -83,7 +83,7 @@ pipeline {
         stage('Payment') {
           steps {
             dir('payment') {
-              git branch: 'main', url: 'https://github.com/raghudevopsb66/payment-infra.git'
+              git branch: 'main', url: 'https://github.com/rahulvamsi/payment-infra.git'
               sh '''
             cd mutable
             terrafile 
@@ -103,7 +103,7 @@ pipeline {
     stage('VPC & DB') {
       steps {
         dir('vpc-n-db') {
-          git branch: 'main', url: 'https://github.com/raghudevopsb66/terraform-mutable-infra.git'
+          git branch: 'main', url: 'https://github.com/rahulvamsi/terraform-mutable-infra.git'
           sh '''
             terrafile 
             terraform init -backend-config=env/prod-backend.tfvars
