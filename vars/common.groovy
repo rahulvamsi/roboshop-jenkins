@@ -24,5 +24,8 @@ def uploadArtifact() {
     stage('Make release - Upload Artifact') {
       // Prepare Artifacts
       sh 'ls -l'
+      sh '''
+        zip -r cart-${TAG_NAME}.zip node_modules server.js
+      '''
     }
 }
