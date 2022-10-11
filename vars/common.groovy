@@ -36,6 +36,12 @@ def uploadArtifact() {
         '''
       }
 
+      if (env.APP_TYPE == "python") {
+        sh '''
+          zip -r ${COMPONENT}-${TAG_NAME}.zip requirements.txt *.py *.ini
+        '''
+      }
+
       //Upload Artifacts
       withCredentials([usernamePassword(credentialsId: 'NEXUS', passwordVariable: 'NEXUS_PSW', usernameVariable: 'NEXUS_USR')]) {
           sh '''
