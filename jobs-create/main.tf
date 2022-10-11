@@ -23,3 +23,4 @@ resource "jenkins_job" "app-jobs" {
     git_repo = element(var.app-jobs, count.index)
   })
 }
+
