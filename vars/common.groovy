@@ -29,6 +29,13 @@ def uploadArtifact() {
         '''
       }
 
+      if (env.APP_TYPE == "java") {
+        sh '''
+          mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
+          zip -r ${COMPONENT}-${TAG_NAME}.zip ${COMPONENT}.jar
+        '''
+      }
+
       //Upload Artifacts
       withCredentials([usernamePassword(credentialsId: 'NEXUS', passwordVariable: 'NEXUS_PSW', usernameVariable: 'NEXUS_USR')]) {
           sh '''
